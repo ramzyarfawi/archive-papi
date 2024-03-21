@@ -100,13 +100,6 @@
 			<classifier>mule-plugin</classifier>
 		</dependency>
 		<dependency>
-			<groupId>2fdf0f92-7894-4d64-934e-2c509ced85d5</groupId>
-			<artifactId>archive-process-api</artifactId>
-			<version>1.0.1</version>
-			<classifier>raml</classifier>
-			<type>zip</type>
-		</dependency>
-		<dependency>
 			<groupId>org.mule.modules</groupId>
 			<artifactId>mule-apikit-module</artifactId>
 			<version>1.9.2</version>
@@ -123,6 +116,13 @@
 			<artifactId>mule-file-connector</artifactId>
 			<version>1.5.2</version>
 			<classifier>mule-plugin</classifier>
+		</dependency>
+		<dependency>
+			<groupId>2fdf0f92-7894-4d64-934e-2c509ced85d5</groupId>
+			<artifactId>archive-process-api</artifactId>
+			<version>1.0.2</version>
+			<classifier>raml</classifier>
+			<type>zip</type>
 		</dependency>
 	</dependencies>
 

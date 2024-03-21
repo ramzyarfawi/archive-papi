@@ -15,14 +15,11 @@ http://www.mulesoft.org/schema/mule/file http://www.mulesoft.org/schema/mule/fil
 output application/xml
 ---
 BOOKS: {
-    BOOK @(ID:1):
+    BOOK @(ID: "<dynamicvalue>"):
     {
         TITLE: "HELLO WORLD",
         AUTHOR: "RARFAOUI",
-        PUB_DATE: "19/03/2024",
-        COVER: "BLACK",
-        PRICE: "120",
-        CATEGORY: "FICTION"
+        PRICE: "120"
     }
 }]]></ee:set-payload>
 			</ee:message>
@@ -68,11 +65,15 @@ output multipart/form-data
 	"client_secret" : p('amazon-s3-sapi.client_secret'),
 	"client_id" : p('amazon-s3-sapi.client_id')
 }]]]></http:headers>
+			<http:query-params ><![CDATA[#[output application/java
+---
+{
+	"bucketName" : "Notifications"
+}]]]></http:query-params>
 		</http:request>
-	</flow>
-	<flow name="notifyFlow" doc:id="53973de8-0492-4619-b523-6e58e0c0997d" >
-		<http:request method="POST" doc:name="Request" doc:id="c211e3e6-befa-481a-97a0-5a139345d4ae" config-ref="HTTP_Request_configuration_amazons3" path="/${notification-papi.request_path}" >
-			<http:headers ><![CDATA[#[output application/java
+		<logger level="INFO" doc:name="Logger" doc:id="044250c0-ea64-4bac-8a18-df2fae5ee9b7" />
+		<http:request method="POST" doc:name="Request" doc:id="c211e3e6-befa-481a-97a0-5a139345d4ae" config-ref="HTTP_Request_configuration_amazons3" path="/${notification-papi.request_path}">
+			<http:headers><![CDATA[#[output application/java
 ---
 {
 	"client_secret" : p('notification-papi.client_secret'),

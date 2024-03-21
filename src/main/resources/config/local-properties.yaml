@@ -1,9 +1,23 @@
 api:
   id: "19355699"
 
+listener:
+  port: "8084"
+  
 amazon-s3-sapi:
-  host: "amazon-s3-sapi-a0y7fb.5sc6y6-1.usa-e2.cloudhub.io"
+  protocol: "HTTP"
+  host: "localhost"
+  port: "8085"
   base-path: "api"
   request_path: "file"
   client_id: "d84f6d53e3b043fb879455465949ed0b"
   client_secret: "4D7363A0350346738D51bF42D077E304"
+
+notification-papi:
+  protocol: "HTTP"
+  host: "localhost"
+  port: "8086"
+  base-path: "api"
+  request_path: "sms"
+  client_id: "a0a572f9de904919b49cf102012cbe58"
+  client_secret: "8E16b4B84A2b47E98144D3c5b6C0fADc"
